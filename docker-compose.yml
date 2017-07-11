@@ -1,0 +1,45 @@
+version: "2"
+services:
+  nginx:
+    build:
+      context: ./docker/nginx
+    ports:
+      - "8080:80"
+    volumes:
+      - ./app:/var/app
+  fpm:
+    build:
+      context: ./docker/fpm
+    volumes:
+      - ./app:/var/app
+    expose:
+      - "9000"
+    environment:
+      - "DB_HOST=db"
+      - "DB_DATABASE=dbdatabase"
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links:
+      - db
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+    ports:
+      - "7979:80"
+  db-data:
+    container_name: db-zend
+    image: busybox
+    volumes:
+      - database:/var/lib/mysql
+  db:
+    image: mariadb
+    volumes_from:
+      - db-data
+    environment:
+      MYSQL_USER: user
+      MYSQL_PASSWORD: pwd
+      MYSQL_ROOT_PASSWORD: rootpwd
+      MYSQL_DATABASE: database
+volumes:
+    database:
+        driver: local
