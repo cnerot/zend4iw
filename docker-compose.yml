@@ -30,7 +30,7 @@ services:
     container_name: db-zend
     image: busybox
     volumes:
-      - database:/var/lib/mysql
+      - pokemon_database:/var/lib/mysql
   db:
     image: mariadb
     volumes_from:
@@ -39,7 +39,7 @@ services:
       MYSQL_USER: user
       MYSQL_PASSWORD: pwd
       MYSQL_ROOT_PASSWORD: rootpwd
-      MYSQL_DATABASE: database
+      MYSQL_DATABASE: pokemon_database
 volumes:
-    database:
+    pokemon_database:
         driver: local
