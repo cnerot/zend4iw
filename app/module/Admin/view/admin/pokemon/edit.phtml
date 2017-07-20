@@ -1,0 +1,83 @@
+<?php
+    $this->headTitle("Editer " .$this->pokeview->name);
+?>
+
+<h1><?php echo $this->escapeHtml("Editer " .$this->pokeview->name); ?></h1>
+
+<?php
+    $form = $this->form;
+    $form->setAttribute('action', $this->url('zfcadmin/pokemon/action', array('action' => 'edit', 'id' => $form->get('id')->getValue())));
+    $form->setAttribute('class', 'form-horizontal');
+    $form->prepare();
+
+    echo $this->form()->openTag($form);
+    echo $this->formHidden($form->get('id'));
+?>
+
+    <div class="control-group">
+        <?php echo $this->formLabel($form->get('name'));?>
+        <div class="controls">
+            <?php echo $this->formInput($form->get('name'));?>
+            <?php echo $this->formElementErrors($form->get('name'), array('class' => 'error_list'));?>
+        </div>
+    </div>
+
+    <div class="control-group">
+    	<?php echo $this->formLabel($form->get('national_id'));?>
+        <div class="controls">
+        	<?php echo $this->formInput($form->get('national_id'));?>
+            <?php echo $this->formElementErrors($form->get('national_id'), array('class' => 'error_list'));?>
+        </div>
+    </div>
+
+    <div class="control-group">
+    	<?php echo $this->formLabel($form->get('description'));?>
+        <div class="controls">
+        	<?php echo $this->formTextarea($form->get('description'));?>
+            <?php echo $this->formElementErrors($form->get('description'), array('class' => 'error_list'));?>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <?php echo $this->formLabel($form->get('type_principal')->setLabelAttributes(array('class' => 'control-label')));?>
+        <div class="controls">
+            <?php echo $this->formSelect($form->get('type_principal'));?>
+            <?php echo $this->formElementErrors($form->get('type_principal'), array('class' => 'error_list'));?>
+        </div>
+    </div>
+    <div class="control-group">
+        <?php echo $this->formLabel($form->get('type_secondaire')->setLabelAttributes(array('class' => 'control-label')));?>
+        <div class="controls">
+            <?php echo $this->formSelect($form->get('type_secondaire'));?>
+            <?php echo $this->formElementErrors($form->get('type_secondaire'), array('class' => 'error_list'));?>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <?php echo $this->formLabel($form->get('evolution')->setLabelAttributes(array('class' => 'control-label')));?>
+        <div class="controls">
+            <?php echo $this->formSelect($form->get('evolution'));?>
+            <?php echo $this->formElementErrors($form->get('evolution'), array('class' => 'error_list'));?>
+        </div>
+    </div>
+<div class="control-group">
+    <div class="controls">
+        <img src="<?php echo $this->basePath() . "/pokemon_img/".$this->pokeview->avatar?>" height="210px"/><br>
+    </div>
+</div>
+    <div class="control-group">
+        <?php echo $this->formLabel($form->get('avatar'));?>
+        <div class="controls">
+            <?php echo $this->formFile($form->get('avatar'));?>
+            <?php echo $this->formElementErrors($form->get('avatar'), array('class' => 'error_list'));?>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <div class="controls">
+            <?php echo $this->formSubmit($form->get('submit'), array('class' => 'btn'));?>
+        </div>
+    </div>
+<?php
+    echo $this->form()->closeTag();
+?>

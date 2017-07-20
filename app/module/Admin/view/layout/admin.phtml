@@ -1,0 +1,62 @@
+<?php
+echo $this->doctype();
+?>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <?php echo $this->headTitle('ZfcAdmin - Zend Framework 2 Admin Interface')->setSeparator(' - ')->setAutoEscape(false) ?>
+        <?php echo $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0') ?>
+        <?php
+        echo $this->headLink()->prependStylesheet($this->basePath() . '/css/bootstrap.min.css');
+        echo $this->headLink()->prependStylesheet($this->basePath() . '/css/admin.css');
+        echo $this->headLink()->prependStylesheet($this->basePath() . '/css/font-awesome.min.css');
+        ?>
+        <!-- Scripts -->
+        <?php echo $this->headScript()->prependFile($this->basePath() . '/js/bootstrap.min.js')
+                                        ->prependFile('//code.jquery.com/jquery.min.js')
+                                      ->prependFile('//html5shiv.googlecode.com/svn/trunk/html5.js', 'text/javascript', array('conditional' => 'lt IE 9',)) ?>
+    </head>
+    <body>
+    <?php if($this->zfcUserIdentity()): ?>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="navbar navbar-inverse navbar-fixed-side">
+        <a class="navbar-brand" href="<?php echo $this->url('zfcadmin/pokemon') ?>">Pokedex</a>
+                <?php echo $this->navigation('admin_navigation')->menu()
+                    ->setMinDepth(1)
+                    ->setMaxDepth(1)
+                    ->setUlClass("nav navbar-nav")
+                    ->setRenderInvisible(false)->render();?>
+            <ul class="nav navbar-nav">
+                <li><a href="<?php echo $this->url('zfcadmin/pokemon/action',array('action' => 'add', 'id' => $pokemon['id']), null, false);?>"> &nbsp;Ajouter un Pokemon</a></li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li><a href="<?php echo $this->url('zfcadmin/logout')?>"> &nbsp; Se déconnecter</a></li>
+            </ul>
+        </div>
+            </div>
+        </div>
+        <div>
+            <?php if (count($this->flashMessages) > 0):?>
+                <?php foreach ($this->flashMessages as $messages):?>
+                    <?php foreach ($messages as $key => $message):?>
+                        <div class="alert alert-<?php echo $key;?>">
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            <?php echo $message;?>
+                        </div>
+                    <?php endforeach;?>
+                <?php endforeach;?>
+            <?php endif; ?>
+        </div>
+    <?php endif;?>
+   <div class="container">
+       <?php echo $this->content; ?>
+       <footer>
+       </footer>
+   </div>
+
+    </body>
+</html>
+

@@ -1,0 +1,40 @@
+<?php
+    use \Pokedex\Filter\Slugify as Slugify;
+
+    $slug = new Slugify();
+?>
+<div class="container-fluid">
+        <div class="row">
+            <?php if (isset($this->pokemons)) :?>
+        <?php foreach($this->pokemons as $test => $pokemon): ?>
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3" style="
+    background-color: white;
+        box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border: 1px solid #3F3D47;
+    text-align: center;
+">
+                    <img src="<?php echo $this->basePath() . "/pokemon_img/".$pokemon['avatar']?>" height="210px"/><br>
+                <a href="<?php echo $this->url('home/action', array('action' => 'get', 'id' => $pokemon['id']), null, false);?>">
+                <span><?php echo $pokemon['name'] ?></span> - <span>#<?php echo $pokemon['national_id']?></span></a><br>
+                    <span><?php echo $this->types[$pokemon['type_principal'] - 1]['label'] ?>
+                    <?php if (isset($pokemon['type_secondaire'])) :?>
+                        - <span><?php echo $this->types[$pokemon['type_secondaire'] - 1]['label'] ?>
+                    <?php endif?>
+            </div>
+        <?php endforeach;?>
+            <?php else :?>
+                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3" style="
+    background-color: white;
+        box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border: 1px solid #3F3D47;
+    text-align: center;
+">
+                    Aucun pokémon n'existe en base !
+                </div>
+            <?php endif;?>
+    </div>
+</div>

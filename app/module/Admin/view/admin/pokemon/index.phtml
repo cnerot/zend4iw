@@ -1,0 +1,5 @@
+<?php foreach ($this->results as $result): ?>
+    <?php
+        echo $this->partial('/partials/pokemon_list', array('pokemons' => $result['pokemons'], 'types' => $result['types']));
+    ?>
+<?php endforeach;?>
