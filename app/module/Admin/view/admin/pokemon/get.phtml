@@ -30,9 +30,6 @@ $this->headTitle($this->pokemon->name);
                     <div id="buttontopPicture1"></div>
                     <div id="buttontopPicture2"></div>
                 </div>
-                <div id="picture">
-                    <img src="<?php echo $this->basePath()."/pokemon_img/".$this->pokemon->avatar;?>" alt="<?php echo $this->pokemon->name?>" height="170" />
-                </div>
                 <div id="buttonbottomPicture"></div>
                 <div id="speakers">
                     <div class="sp"></div>
@@ -57,18 +54,6 @@ $this->headTitle($this->pokemon->name);
                 </div>
                 <div id="topcross">
                     <div id="upT"></div>
-                </div>
-                <div id="rightcross">
-                    <?php if ($this->pokemon->id < $lastPokemon['id'] ) :?>
-                        <a href="<?php echo $this->url('zfcadmin/pokemon/action',
-                            array('action' => 'get', 'id' => $this->pokemon->id + 1), null, false);?>">
-                            <div id="rightT">
-                            </div>
-                        </a>
-                    <?php else: ?>
-                        <div id="rightT">
-                        </div>
-                    <?php endif; ?>
                 </div>
                 <div id="midcross">
                     <div id="midCircle"></div>
@@ -120,7 +105,6 @@ $this->headTitle($this->pokemon->name);
     border: 1px solid #3F3D47;
     text-align: center;
 ">
-            <img src="<?php echo $this->basePath() . "/pokemon_img/".$evolution->avatar?>" height="210px"/><br>
             <a href="<?php echo $this->url('zfcadmin/pokemon/action', array('action' => 'get', 'id' => $evolution->id), null, false);?>">
                 <span><?php echo $evolution->name ?></span> - <span>#<?php echo $evolution->national_id?></span></a><br>
             <span><?php echo $this->types[$evolution->type_principal - 1]['label'] ?>

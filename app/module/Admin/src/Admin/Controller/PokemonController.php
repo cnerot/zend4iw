@@ -89,6 +89,7 @@ class PokemonController extends PokedexController
         $formPokemon= new PokemonForm($this->typesTable, $this->pokemonTable);
         $formPokemon->get('submit')->setValue('Ajouter le Pokemon');
         if ($request->isPost()) {
+            new PokemonAdder();
             $pokemon = $this->getServiceLocator()->get('Pokedex/Model/Pokemon');
             $formPokemon->setInputFilter($pokemon->getInputFilter());
 
@@ -127,7 +128,6 @@ class PokemonController extends PokedexController
 
                 $size = new Size(array('max' => 716800));
                 $adapter = new \Zend\File\Transfer\Adapter\Http();
-                $adapter->setValidators(array($size), $files['avatar']);
 
                 if (!$adapter->isValid()) {
                     $dataError = $adapter->getMessages();

@@ -1,8 +1,8 @@
 <?php
-$this->headTitle("Ajouter un Pokemon");
+$this->headTitle("Nouveau pokémon");
 ?>
 
-<h1><?php echo $this->escapeHtml("Ajouter un Pokemon"); ?></h1>
+<h1><?php echo $this->escapeHtml("Nouveau pokémon"); ?></h1>
 
 <?php
 $form = $this->form;
@@ -58,13 +58,6 @@ echo $this->formHidden($form->get('id'));
     <div class="controls">
         <?php echo $this->formSelect($form->get('evolution'));?>
         <?php echo $this->formElementErrors($form->get('evolution'), array('class' => 'error_list'));?>
-    </div>
-</div>
-<div class="control-group">
-    <?php echo $this->formLabel($form->get('avatar'));?>
-    <div class="controls">
-        <?php echo $this->formFile($form->get('avatar'));?>
-        <?php echo $this->formElementErrors($form->get('avatar'), array('class' => 'error_list'));?>
     </div>
 </div>
 

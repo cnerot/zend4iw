@@ -12,7 +12,7 @@ use Zend\Mvc\Router\RouteMatch;
 
 class Module extends AbstractModule implements ConfigProviderInterface
 {
-    protected $whitelist = array('zfcadmin/login', 'home', 'pokeapi', 'home/action', 'pokeapi/action');
+    protected $whitelist = array('zfcadmin/login', 'home', 'apiPokemon', 'home/action', 'apiPokemon/action');
 
     public function onBootstrap(MvcEvent $e)
     {

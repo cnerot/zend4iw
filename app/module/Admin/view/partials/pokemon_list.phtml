@@ -15,9 +15,8 @@
     border: 1px solid #3F3D47;
     text-align: center;
 ">
-                    <img src="<?php echo $this->basePath() . "/pokemon_img/".$pokemon['avatar']?>" height="210px"/><br>
                 <a href="<?php echo $this->url('zfcadmin/pokemon/action', array('action' => 'get', 'id' => $pokemon['id']), null, false);?>">
-                <span><?php echo $pokemon['name'] ?></span> - <span>#<?php echo $pokemon['national_id']?></span></a><br>
+                <span><?php echo $pokemon['name'] ?></span> - <span>N°<?php echo $pokemon['national_id']?></span></a><br>
                     <span><?php echo $this->types[$pokemon['type_principal'] - 1]['label'] ?>
                     <?php if (isset($pokemon['type_secondaire'])) :?>
                         - <?php echo $this->types[$pokemon['type_secondaire'] - 1]['label'] ?></span>

@@ -60,18 +60,6 @@
             <?php echo $this->formElementErrors($form->get('evolution'), array('class' => 'error_list'));?>
         </div>
     </div>
-<div class="control-group">
-    <div class="controls">
-        <img src="<?php echo $this->basePath() . "/pokemon_img/".$this->pokeview->avatar?>" height="210px"/><br>
-    </div>
-</div>
-    <div class="control-group">
-        <?php echo $this->formLabel($form->get('avatar'));?>
-        <div class="controls">
-            <?php echo $this->formFile($form->get('avatar'));?>
-            <?php echo $this->formElementErrors($form->get('avatar'), array('class' => 'error_list'));?>
-        </div>
-    </div>
 
     <div class="control-group">
         <div class="controls">

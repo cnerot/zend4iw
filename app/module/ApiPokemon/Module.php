@@ -1,7 +1,7 @@
 <?php
-namespace Pokeapi;
+namespace ApiPokemon;
 
-use Pokeapi\Controller\PokemonController;
+use ApiPokemon\Controller\PokemonController;
 use Zend\ModuleManager\Feature\ConfigProviderInterface;
 use Zend\Mvc\Controller\ControllerManager;
 use ZfcBase\Module\AbstractModule;
@@ -14,7 +14,7 @@ class Module extends AbstractModule implements ConfigProviderInterface
     {
         return array(
             'factories' => array(
-                'Pokeapi\Controller\Pokemon' => function (ControllerManager $cm)
+                'ApiPokemon\Controller\Pokemon' => function (ControllerManager $cm)
                 {
                     $sm = $cm->getServiceLocator();
                     $config = $sm->get('Config');

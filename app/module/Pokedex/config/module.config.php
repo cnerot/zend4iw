@@ -9,7 +9,7 @@ return array(
                 'backend-login' => 'zfcadmin/login',
                 'frontend' => 'home',
                 'frontend-login' => 'home/login',
-                'api' => '/pokeapi/'
+                'api' => '/apipokemon/'
             )
         )
     ),

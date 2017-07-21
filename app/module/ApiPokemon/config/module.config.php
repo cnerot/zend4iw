@@ -1,18 +1,18 @@
 <?php
-namespace Pokeapi;
+namespace ApiPokemon;
 
 return array(
-    'pokeapi' => array(
+    'ApiPokemon' => array(
     ),
     'router' => array(
         'routes' => array(
-            'pokeapi' => array(
+            'ApiPokemon' => array(
                 'type' => 'segment',
                 'options' => array(
-                    'route' => '/pokeapi',
+                    'route' => '/apipokemon',
                     'defaults' => array(
-                        'module' => 'Pokeapi',
-                        'controller' => 'Pokeapi\Controller\Pokemon',
+                        'module' => 'ApiPokemon',
+                        'controller' => 'ApiPokemon\Controller\Pokemon',
                         'action' => 'get'
                     )
                 ),
@@ -26,7 +26,7 @@ return array(
                                 'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                             ),
                             'defaults' => array(
-                                'controller' => 'Pokeapi\Controller\Pokemon',
+                                'controller' => 'ApiPokemon\Controller\Pokemon',
                                 'action' => 'get'
                             )
                         ),

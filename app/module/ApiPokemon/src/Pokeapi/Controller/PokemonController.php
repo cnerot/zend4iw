@@ -1,5 +1,5 @@
 <?php
-namespace Pokeapi\Controller;
+namespace ApiPokemon\Controller;
 
 use Zend\EventManager\EventManagerInterface;
 use Pokedex\Controller\PokedexController;

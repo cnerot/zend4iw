@@ -33,7 +33,7 @@ class PokemonForm extends Form
                     'id'    => 'name'
                 ),
                 'options' => array(
-                    'label' => 'Nom du Pokemon',
+                    'label' => 'Nom',
                 ),
             )
         );
@@ -47,7 +47,7 @@ class PokemonForm extends Form
                     'id'    => 'national_id'
                 ),
                 'options' => array(
-                    'label' => 'ID National du Pokemon',
+                    'label' => 'ID',
                 ),
             )
         );

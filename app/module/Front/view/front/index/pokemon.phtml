@@ -30,9 +30,6 @@ $this->headTitle($this->pokemon->name);
                     <div id="buttontopPicture1"></div>
                     <div id="buttontopPicture2"></div>
                 </div>
-                <div id="picture">
-                    <img src="<?php echo $this->basePath()."/pokemon_img/".$this->pokemon->avatar;?>" alt="<?php echo $this->pokemon->name?>" height="170" />
-                </div>
                 <div id="buttonbottomPicture"></div>
                 <div id="speakers">
                     <div class="sp"></div>
@@ -72,11 +69,12 @@ $this->headTitle($this->pokemon->name);
         <div id="right">
             <div id="stats">
                 <strong>Nom : </strong><?php echo $this->pokemon->name ?><br/>
-                <strong>Type Principal :</strong> <?php echo $this->types[$this->pokemon->type_principal - 1]['label'] ?><br/>
+                <strong>Type(s) : </strong> <?php echo $this->types[$this->pokemon->type_principal - 1]['label'] ?>
                 <?php if ($this->pokemon->type_secondaire != null) :?>
-                    <strong>Type Secondaire :</strong> <?php echo $this->types[$this->pokemon->type_secondaire - 1]['label'] ?><br/>
+
+                    <?php echo $this->types[$this->pokemon->type_secondaire - 1]['label'] ?><br/>
                 <?php endif ?><br/>
-                <strong><?php echo $this->pokemon->description ?></strong><br/>
+                <italic><?php echo $this->pokemon->description ?></italic><br/>
             </div>
             <div id="blueButtons2">
                 <div class="blueButton"></div>
@@ -105,20 +103,12 @@ $this->headTitle($this->pokemon->name);
 ">
     </div>
     <?php foreach($this->evolutions as $evolution): ?>
-        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3" style="
-    background-color: white;
-        box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    border: 1px solid #3F3D47;
-    text-align: center;
-">
-            <img src="<?php echo $this->basePath() . "/pokemon_img/".$evolution->avatar?>" height="210px"/><br>
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3" style="">
             <a href="<?php echo $this->url('home/action', array('action' => 'get', 'id' => $evolution->id), null, false);?>">
-                <span><?php echo $evolution->name ?></span> - <span>#<?php echo $evolution->national_id?></span></a><br>
+                <span><?php echo $evolution->name ?></span> / <span>N°<?php echo $evolution->national_id?></span></a><br>
             <span><?php echo $this->types[$evolution->type_principal - 1]['label'] ?>
                 <?php if (isset($evolution->type_secondaire)) :?>
-                - <?php echo $this->types[$evolution->type_secondaire - 1]['label'] ?></span>
+                / <?php echo $this->types[$evolution->type_secondaire - 1]['label'] ?></span>
             <?php endif?>
         </div>
     <?php endforeach;?>

@@ -30,9 +30,6 @@ echo $this->doctype();
                     ->setUlClass("nav navbar-nav")
                     ->setRenderInvisible(false)->render();?>
             <ul class="nav navbar-nav">
-                <li><a href="<?php echo $this->url('zfcadmin/pokemon/action',array('action' => 'add', 'id' => $pokemon['id']), null, false);?>"> &nbsp;Ajouter un Pokemon</a></li>
-            </ul>
-            <ul class="nav navbar-nav">
                 <li><a href="<?php echo $this->url('zfcadmin/logout')?>"> &nbsp; Se déconnecter</a></li>
             </ul>
         </div>

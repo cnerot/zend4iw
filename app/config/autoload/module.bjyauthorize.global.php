@@ -34,8 +34,8 @@ return array(
                 array('route' => 'zfcadmin/pokemon/action', 'roles' => array('admin')),
                 array('route' => 'home/action', 'roles' => array('guest', 'user', 'admin')),
                 array('route' => '/', 'roles' => array('guest', 'user', 'admin')),
-                array('route' => 'pokeapi', 'roles' => array('guest', 'user', 'admin')),
-                array('route' => 'pokeapi/action', 'roles' => array('guest', 'user', 'admin'))
+                array('route' => 'apipokemon', 'roles' => array('guest', 'user', 'admin')),
+                array('route' => 'apipokemon/action', 'roles' => array('guest', 'user', 'admin'))
             )
         )
     )
