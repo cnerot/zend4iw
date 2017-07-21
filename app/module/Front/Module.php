@@ -13,13 +13,14 @@ use ZfcBase\Module\AbstractModule;
 use Zend\ModuleManager\ModuleManagerInterface;
 use Zend\Session\Container;
 use Zend\Session\SessionManager;
+use Zend\ModuleManager\ModuleManager;
 
 class Module extends AbstractModule implements ConfigProviderInterface
 {
 
     protected $serviceManager;
 
-    public function init(ModuleManagerInterface $manager)
+    public function init(ModuleManager $moduleManager)
     {
         $events = StaticEventManager::getInstance();
         $events->attach('bootstrap', 'bootstrap', array(
